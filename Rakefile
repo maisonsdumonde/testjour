@@ -1,12 +1,14 @@
 require 'rubygems'
-require "rake/gempackagetask"
+require "rubygems/package_task"
+require './lib/testjour.rb'
+require 'rake/gempackagetask'
 require "rake/clean"
-require "spec/rake/spectask"
+require "rspec/core/rake_task"
 require "cucumber/rake/task"
 require './lib/testjour.rb'
 
-Spec::Rake::SpecTask.new do |t|
-  t.spec_opts == ["--color"]
+RSpec::Core::RakeTask.new do |t|
+#  t.spec_opts == ["--color"]
 end
 
 Cucumber::Rake::Task.new do |t|
